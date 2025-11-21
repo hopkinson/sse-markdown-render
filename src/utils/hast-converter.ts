@@ -138,7 +138,7 @@ export function hastToVue(
     }
     // 递归处理子节点
     const childNodes = children
-      .map((child) => hastToVue(child, message))
+      .map((child) => hastToVue(child))
       .filter((child): child is VNode | string => child !== null) as Array<VNode | string>
 
     return h(tagName, properties, childNodes)
@@ -151,7 +151,7 @@ export function hastToVue(
       'div',
       {},
       (rootNode.children
-        ?.map((child) => hastToVue(child, message))
+        ?.map((child) => hastToVue(child))
         .filter((child): child is VNode | string => child !== null) as Array<VNode | string>) || [],
     )
   }
